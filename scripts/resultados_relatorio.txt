@@ -1,0 +1,120 @@
+
+==================================================
+ SIMULAÇÃO: FIFO 
+==================================================
+
+--- Tabela Final: FIFO ---
+ ID  Chegada  Execução  Deadline  Prioridade  Início  Término  Espera  Turnaround Deadline OK?
+  0        0         4        10           1       0        4       0           4          Sim
+  1        2         6        14           2       4       11       3           9          Sim
+  2        4         6        20           3      11       18       8          14          Sim
+  3        6         8        24           4      18       27      13          21          Não
+
+--- Resumo Quantitativo ---
+Tempo total de simulação: 28 u.t.
+Média de Espera: 6.00
+Média de Turnaround: 12.00
+Throughput: 0.1429 processos/u.t.
+% de CPU Ociosa: 3.57%
+Total de Preempções: 0
+Total de Trocas de Contexto: 3
+
+==================================================
+ SIMULAÇÃO: SJF 
+==================================================
+
+--- Tabela Final: SJF ---
+ ID  Chegada  Execução  Deadline  Prioridade  Início  Término  Espera  Turnaround Deadline OK?
+  0        0         4        10           1       0        4       0           4          Sim
+  1        2         6        14           2       4       11       3           9          Sim
+  2        4         6        20           3      11       18       8          14          Sim
+  3        6         8        24           4      18       27      13          21          Não
+
+--- Resumo Quantitativo ---
+Tempo total de simulação: 28 u.t.
+Média de Espera: 6.00
+Média de Turnaround: 12.00
+Throughput: 0.1429 processos/u.t.
+% de CPU Ociosa: 3.57%
+Total de Preempções: 0
+Total de Trocas de Contexto: 3
+
+==================================================
+ SIMULAÇÃO: PRIORIDADE 
+==================================================
+
+--- Tabela Final: PRIORIDADE ---
+ ID  Chegada  Execução  Deadline  Prioridade  Início  Término  Espera  Turnaround Deadline OK?
+  0        0         4        10           1       0        4       0           4          Sim
+  1        2         6        14           2       4       11       3           9          Sim
+  2        4         6        20           3      11       18       8          14          Sim
+  3        6         8        24           4      18       27      13          21          Não
+
+--- Resumo Quantitativo ---
+Tempo total de simulação: 28 u.t.
+Média de Espera: 6.00
+Média de Turnaround: 12.00
+Throughput: 0.1429 processos/u.t.
+% de CPU Ociosa: 3.57%
+Total de Preempções: 0
+Total de Trocas de Contexto: 3
+
+==================================================
+ SIMULAÇÃO: RR 
+==================================================
+
+--- Tabela Final: RR ---
+ ID  Chegada  Execução  Deadline  Prioridade  Início  Término  Espera  Turnaround Deadline OK?
+  0        0         4        10           1       0        8       4           8          Sim
+  1        2         6        14           2       2       23      15          21          Não
+  2        4         6        20           3       8       29      19          25          Não
+  3        6         8        24           4      14       34      20          28          Não
+
+--- Resumo Quantitativo ---
+Tempo total de simulação: 35 u.t.
+Média de Espera: 14.50
+Média de Turnaround: 20.50
+Throughput: 0.1143 processos/u.t.
+% de CPU Ociosa: 2.86%
+Total de Preempções: 8
+Total de Trocas de Contexto: 10
+
+==================================================
+ SIMULAÇÃO: EDF 
+==================================================
+
+--- Tabela Final: EDF ---
+ ID  Chegada  Execução  Deadline  Prioridade  Início  Término  Espera  Turnaround Deadline OK?
+  0        0         4        10           1       0        4       0           4          Sim
+  1        2         6        14           2       4       11       3           9          Sim
+  2        4         6        20           3      11       18       8          14          Sim
+  3        6         8        24           4      18       27      13          21          Não
+
+--- Resumo Quantitativo ---
+Tempo total de simulação: 28 u.t.
+Média de Espera: 6.00
+Média de Turnaround: 12.00
+Throughput: 0.1429 processos/u.t.
+% de CPU Ociosa: 3.57%
+Total de Preempções: 0
+Total de Trocas de Contexto: 3
+
+==================================================
+ SIMULAÇÃO: RR_PRIORIDADE_DINAMICA 
+==================================================
+
+--- Tabela Final: RR_PRIORIDADE_DINAMICA ---
+ ID  Chegada  Execução  Deadline  Prioridade  Início  Término  Espera  Turnaround Deadline OK?
+  0        0         4        10           1       0        4       0           4          Sim
+  1        2         6        14           2       4       11       3           9          Sim
+  2        4         6        20           3      11       20      10          16          Sim
+  3        6         8        24           4      16       29      15          23          Não
+
+--- Resumo Quantitativo ---
+Tempo total de simulação: 30 u.t.
+Média de Espera: 7.00
+Média de Turnaround: 13.00
+Throughput: 0.1333 processos/u.t.
+% de CPU Ociosa: 3.33%
+Total de Preempções: 9
+Total de Trocas de Contexto: 5

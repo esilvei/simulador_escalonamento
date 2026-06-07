@@ -47,6 +47,8 @@ class SimuladorEscalonamento:
                 cpu_processo.calcular_metricas()
                 processos_concluidos.append(cpu_processo)
                 cpu_processo = None
+                if not processos and not fila_prontos and not cpu_processo:
+                    break
 
             # 3. Lógica de Preempção
             if cpu_processo and sobrecarga_restante == 0:
@@ -97,23 +99,25 @@ class SimuladorEscalonamento:
                     proximo.tempo_na_fila = 0
 
                 # Contabiliza Troca de Contexto
+                processo_saindo_id = ultimo_processo_id 
                 if ultimo_processo_id is not None and proximo.id != ultimo_processo_id:
                     sobrecarga_restante = self.sobrecarga_contexto
                     total_trocas_contexto += 1
 
                 cpu_processo = proximo
                 ultimo_processo_id = proximo.id
-                quantum_restante = self.quantum
-
-                if cpu_processo.tempo_inicio == -1:
-                    cpu_processo.tempo_inicio = tempo_atual
+                quantum_restante = self.quantum                
 
             # 5. Execução do Tick Atual
             if sobrecarga_restante > 0:
-                timeline.append((tempo_atual, "SOBRECARGA", ultimo_processo_id))
+                timeline.append((tempo_atual, "SOBRECARGA", processo_saindo_id))
                 sobrecarga_restante -= 1
             elif cpu_processo:
-                if tempo_atual >= cpu_processo.deadline:
+                if cpu_processo.tempo_inicio == -1:
+                    cpu_processo.tempo_inicio = tempo_atual
+                if not timeline or timeline[-1][2] != cpu_processo.id and timeline[-1][1] != "EXEC":
+                    cpu_processo.todos_inicios.append(tempo_atual)
+                if tempo_atual > cpu_processo.deadline:
                     timeline.append((tempo_atual, "ESTOURO", cpu_processo.id))
                 else:
                     timeline.append((tempo_atual, "EXEC", cpu_processo.id))

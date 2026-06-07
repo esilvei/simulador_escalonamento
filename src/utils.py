@@ -12,7 +12,7 @@ def exibir_tabela_e_metricas(processos, timeline_length, nome_algoritmo, metrica
             "Execução": p.execucao,
             "Deadline": p.deadline,
             "Prioridade": p.prioridade,
-            "Início": p.tempo_inicio,
+            "Início(s)": str(p.todos_inicios) if len(p.todos_inicios) > 1 else str(p.tempo_inicio),
             "Término": p.tempo_termino,
             "Espera": p.espera,
             "Turnaround": p.turnaround,
@@ -37,6 +37,12 @@ def exibir_tabela_e_metricas(processos, timeline_length, nome_algoritmo, metrica
     print(f"% de CPU Ociosa: {perc_ociosidade:.2f}%")
     print(f"Total de Preempções: {metricas_globais['total_preempcoes']}")
     print(f"Total de Trocas de Contexto: {metricas_globais['total_trocas_contexto']}")
+    return {
+        "media_espera": media_espera,
+        "media_turnaround": media_turnaround,
+        "throughput": throughput,
+        "pct_ociosa": perc_ociosidade,
+    }
 
 def gerar_gantt(timeline, processos_originais, nome_algoritmo):
     """Gera o Gráfico de Gantt exigido[cite: 42]."""

@@ -8,6 +8,7 @@ class Processo:
 
         self.tempo_restante = execucao
         self.tempo_inicio = -1
+        self.todos_inicios = []
         self.tempo_termino = -1
 
         self.turnaround = 0
